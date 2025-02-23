@@ -22,7 +22,7 @@
             border-radius: 10px;
             animation: fadeIn 2s ease-in-out;
         }
-        .button {
+        .button, .next-button {
             background: pink;
             color: black;
             padding: 10px 20px;
@@ -31,21 +31,13 @@
             cursor: pointer;
             border-radius: 5px;
             transition: transform 0.3s;
+            margin-top: 10px;
         }
-        .button:hover {
+        .button:hover, .next-button:hover {
             transform: scale(1.1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         .hidden-text {
-            opacity: 0;
-            animation: fadeInText 2s forwards;
-        }
-        @keyframes fadeInText {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            display: none;
         }
         #youtube-player {
             width: 0;
@@ -55,29 +47,42 @@
     </style>
 </head>
 <body>
-    <button class="button" onclick="showMessage()">Klik untuk melihat sesuatu</button>
+    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu</button>
     <div class="container" id="message">
-        <h1 class="hidden-text" style="animation-delay: 1s;">Hai Sarah Septiawati ❤️</h1>
-        <p class="hidden-text" style="animation-delay: 2s;">Aku punya sesuatu buat kamu...</p>
-        <p class="hidden-text" style="animation-delay: 3s;">Dari awal kenal kamu, aku sadar kalau kamu itu spesial ✨</p>
-        <p class="hidden-text" style="animation-delay: 4s;">Semakin hari, aku makin yakin...</p>
-        <p class="hidden-text" style="animation-delay: 5s;"><b>Aku sayang sama kamu! 💖</b></p>
+        <h1 class="hidden-text" id="text1">Hai Sarah Septiawati ❤️</h1>
+        <button class="next-button" onclick="showNext(1)">Lanjut</button>
+        <p class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</p>
+        <button class="next-button hidden-text" onclick="showNext(2)" id="btn2">Lanjut</button>
+        <p class="hidden-text" id="text3">Dari awal kenal kamu, aku sadar kalau kamu itu spesial ✨</p>
+        <button class="next-button hidden-text" onclick="showNext(3)" id="btn3">Lanjut</button>
+        <p class="hidden-text" id="text4">Semakin hari, aku makin yakin...</p>
+        <button class="next-button hidden-text" onclick="showNext(4)" id="btn4">Lanjut</button>
+        <p class="hidden-text" id="text5"><b>Aku sayang sama kamu! 💖</b></p>
         <div id="youtube-player">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/GxldQ9eX2wo?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
     <script>
-        function showMessage() {
+        function startMessage() {
             document.querySelector('.button').style.display = 'none';
             document.getElementById('message').style.display = 'block';
-            document.querySelectorAll('.hidden-text').forEach((el, index) => {
-                el.style.animationDelay = (index + 1) + 's';
-                el.style.animation = 'fadeInText 2s forwards';
-            });
-            setTimeout(() => {
-                document.getElementById('youtube-player').style.width = '1px';
-                document.getElementById('youtube-player').style.height = '1px';
-            }, 500);
+            document.getElementById('text1').style.display = 'block';
+        }
+        function showNext(step) {
+            document.getElementById('text' + step).style.display = 'block';
+            document.getElementById('btn' + step).style.display = 'none';
+            if (step < 5) {
+                document.getElementById('text' + (step + 1)).style.display = 'block';
+                if (step + 1 < 5) {
+                    document.getElementById('btn' + (step + 1)).style.display = 'block';
+                }
+            }
+            if (step === 5) {
+                setTimeout(() => {
+                    document.getElementById('youtube-player').style.width = '1px';
+                    document.getElementById('youtube-player').style.height = '1px';
+                }, 500);
+            }
         }
     </script>
 </body>

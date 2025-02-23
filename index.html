@@ -56,7 +56,6 @@
         }
         .heart {
             position: absolute;
-            bottom: -10px;
             width: 20px;
             height: 20px;
             background: red;
@@ -71,7 +70,7 @@
     </style>
 </head>
 <body>
-    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu (Tunggu musik mulai)</button>
+    <button class="button" onclick="startMessage()">Pencet untuk melihat sesuatu</button>
     <div class="container" id="message">
         <h2 class="hidden-text" id="text1">Hai Sarah</h2>
         <button class="next-button" id="btn1" onclick="showNext(1)">Lanjut</button>
@@ -123,6 +122,15 @@
             document.getElementById('text1').style.display = 'block';
             document.getElementById('btn1').style.display = 'block';
             document.getElementById('audio-player').play();
+
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
         }
         
         function showNext(step) {

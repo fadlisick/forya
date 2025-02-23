@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle, #ff758c, #ff7eb3, #ff99c8);
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             text-align: center;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Poppins', sans-serif;
             color: white;
             overflow: hidden;
             position: relative;
@@ -25,18 +25,19 @@
         }
         .container {
             display: none;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.2);
             padding: 30px;
             border-radius: 15px;
             animation: fadeIn 2s ease-in-out;
             max-width: 80%;
+            backdrop-filter: blur(10px);
         }
         .button, .next-button {
-            background: rgba(255, 69, 105, 0.8);
+            background: #ff6f91;
             color: white;
             padding: 12px 24px;
             border: none;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             border-radius: 10px;
             transition: transform 0.3s;
@@ -70,48 +71,48 @@
     </style>
 </head>
 <body>
-    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu        (Tunggu musik mulai)</button>
+    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu (Tunggu musik mulai)</button>
     <div class="container" id="message">
-        <h1 class="hidden-text" id="text1">Hai Sarah</h1>
+        <h2 class="hidden-text" id="text1">Hai Sarah</h2>
         <button class="next-button" id="btn1" onclick="showNext(1)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</h1>
+        <h2 class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</h2>
         <button class="next-button" id="btn2" onclick="showNext(2)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text3">Dari awal kenal...</h1>
+        <h2 class="hidden-text" id="text3">Dari awal kenal...</h2>
         <button class="next-button" id="btn3" onclick="showNext(3)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text4">Aku sadar kalau kamu itu spesial ✨</h1>
+        <h2 class="hidden-text" id="text4">Aku sadar kalau kamu itu spesial ✨</h2>
         <button class="next-button" id="btn4" onclick="showNext(4)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text5">Semakin hari...</h1>
+        <h2 class="hidden-text" id="text5">Semakin hari...</h2>
         <button class="next-button" id="btn5" onclick="showNext(5)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text6">Aku makin nyaman sama kamu.</h1>
+        <h2 class="hidden-text" id="text6">Aku makin nyaman sama kamu.</h2>
         <button class="next-button" id="btn6" onclick="showNext(6)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text7">Rasanya setiap obrolan kita tuh berharga.</h1>
+        <h2 class="hidden-text" id="text7">Rasanya setiap obrolan kita tuh berharga.</h2>
         <button class="next-button" id="btn7" onclick="showNext(7)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text8">Aku suka cara kamu ketawa...</h1>
+        <h2 class="hidden-text" id="text8">Aku suka cara kamu ketawa...</h2>
         <button class="next-button" id="btn8" onclick="showNext(8)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text9">Cara kamu cerita...</h1>
+        <h2 class="hidden-text" id="text9">Cara kamu cerita...</h2>
         <button class="next-button" id="btn9" onclick="showNext(9)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text10">Dan semua hal kecil tentang kamu.</h1>
+        <h2 class="hidden-text" id="text10">Dan semua hal kecil tentang kamu.</h2>
         <button class="next-button" id="btn10" onclick="showNext(10)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text11">Sejak awal</h1>
+        <h2 class="hidden-text" id="text11">Sejak awal</h2>
         <button class="next-button" id="btn11" onclick="showNext(11)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text12">Aku yakin satu hal...</h1>
+        <h2 class="hidden-text" id="text12">Aku yakin satu hal...</h2>
         <button class="next-button" id="btn12" onclick="showNext(12)">Lanjut</button>
         
-        <h1 class="hidden-text" id="text13">Aku sayang sama kamu! 💖</h1>
+        <h2 class="hidden-text" id="text13">Aku sayang sama kamu! 💖</h2>
     </div>
     
-    <audio id="audio-player" autoplay>
+    <audio id="audio-player" autoplay loop>
         <source src="audio.mp3" type="audio/mp3">
     </audio>
     
@@ -122,7 +123,6 @@
             document.getElementById('text1').style.display = 'block';
             document.getElementById('btn1').style.display = 'block';
             document.getElementById('audio-player').play();
-            createHearts();
         }
         
         function showNext(step) {

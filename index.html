@@ -5,26 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            background: radial-gradient(circle, #ff758c, #ff7eb3, #ff99c8);
             text-align: center;
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Pacifico', cursive;
             color: white;
             overflow: hidden;
             position: relative;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -39,7 +32,7 @@
             max-width: 80%;
         }
         .button, .next-button {
-            background: rgba(255, 105, 180, 0.8);
+            background: rgba(255, 69, 105, 0.8);
             color: white;
             padding: 12px 24px;
             border: none;
@@ -48,7 +41,7 @@
             border-radius: 10px;
             transition: transform 0.3s;
             font-family: 'Arial', sans-serif;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            box-shadow: 0 0 10px rgba(255, 69, 105, 0.8);
         }
         .button:hover, .next-button:hover {
             transform: scale(1.1);
@@ -60,7 +53,6 @@
         #audio-player {
             display: none;
         }
-        /* Efek hati melayang */
         .heart {
             position: absolute;
             bottom: -10px;
@@ -78,7 +70,7 @@
     </style>
 </head>
 <body>
-    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu</button>
+    <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu (Tunggu musik mulai)</button>
     <div class="container" id="message">
         <h1 class="hidden-text" id="text1">Hai Sarah</h1>
         <button class="next-button" id="btn1" onclick="showNext(1)">Lanjut</button>
@@ -140,17 +132,6 @@
                 document.getElementById('text' + (step + 1)).style.display = 'block';
                 document.getElementById('btn' + (step + 1)).style.display = 'block';
             }
-        }
-        
-        function createHearts() {
-            setInterval(() => {
-                let heart = document.createElement("div");
-                heart.className = "heart";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 5000);
-            }, 500);
         }
     </script>
 </body>

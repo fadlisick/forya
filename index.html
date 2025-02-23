@@ -47,17 +47,23 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        #youtube-player {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-    <button class="button" onclick="showMessage()">Klik untuk melihat pesan</button>
+    <button class="button" onclick="showMessage()">Klik untuk melihat sesuatu</button>
     <div class="container" id="message">
         <h1 class="hidden-text" style="animation-delay: 1s;">Hai Sarah Septiawati ❤️</h1>
-        <p class="hidden-text" style="animation-delay: 2s;">Dari awal aku kenal kamu, aku sadar kalau kamu itu spesial ✨</p>
-        <p class="hidden-text" style="animation-delay: 3s;">Semakin hari, aku makin yakin...</p>
-        <p class="hidden-text" style="animation-delay: 4s;"><b>Aku sayang sama kamu! 💖</b></p>
-        <div id="youtube-player" style="margin-top: 20px;">
-            <iframe width="300" height="150" src="https://www.youtube.com/embed/REkN7LwHjkg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p class="hidden-text" style="animation-delay: 2s;">Aku punya sesuatu buat kamu...</p>
+        <p class="hidden-text" style="animation-delay: 3s;">Dari awal kenal kamu, aku sadar kalau kamu itu spesial ✨</p>
+        <p class="hidden-text" style="animation-delay: 4s;">Semakin hari, aku makin yakin...</p>
+        <p class="hidden-text" style="animation-delay: 5s;"><b>Aku sayang sama kamu! 💖</b></p>
+        <div id="youtube-player">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GxldQ9eX2wo?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
     <script>
@@ -68,6 +74,10 @@
                 el.style.animationDelay = (index + 1) + 's';
                 el.style.animation = 'fadeInText 2s forwards';
             });
+            setTimeout(() => {
+                document.getElementById('youtube-player').style.width = '1px';
+                document.getElementById('youtube-player').style.height = '1px';
+            }, 500);
         }
     </script>
 </body>

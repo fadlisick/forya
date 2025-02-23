@@ -46,10 +46,8 @@
         .hidden-text, .next-button {
             display: none;
         }
-        #youtube-player {
-            width: 0;
-            height: 0;
-            overflow: hidden;
+        #audio-player {
+            display: none;
         }
     </style>
 </head>
@@ -59,45 +57,45 @@
         <h1 class="hidden-text" id="text1">Hai Sarah</h1>
         <button class="next-button" id="btn1" onclick="showNext(1)">Lanjut</button>
         
-        <p class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</p>
+        <h1 class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</h1>
         <button class="next-button" id="btn2" onclick="showNext(2)">Lanjut</button>
         
-        <p class="hidden-text" id="text3">Dari awal kenal...</p>
+        <h1 class="hidden-text" id="text3">Dari awal kenal...</h1>
         <button class="next-button" id="btn3" onclick="showNext(3)">Lanjut</button>
         
-        <p class="hidden-text" id="text4">Aku sadar kalau kamu itu spesial ✨</p>
+        <h1 class="hidden-text" id="text4">Aku sadar kalau kamu itu spesial ✨</h1>
         <button class="next-button" id="btn4" onclick="showNext(4)">Lanjut</button>
         
-        <p class="hidden-text" id="text5">Semakin hari...</p>
+        <h1 class="hidden-text" id="text5">Semakin hari...</h1>
         <button class="next-button" id="btn5" onclick="showNext(5)">Lanjut</button>
         
-        <p class="hidden-text" id="text6">Aku makin nyaman sama kamu.</p>
+        <h1 class="hidden-text" id="text6">Aku makin nyaman sama kamu.</h1>
         <button class="next-button" id="btn6" onclick="showNext(6)">Lanjut</button>
         
-        <p class="hidden-text" id="text7">Rasanya setiap obrolan kita tuh berharga.</p>
+        <h1 class="hidden-text" id="text7">Rasanya setiap obrolan kita tuh berharga.</h1>
         <button class="next-button" id="btn7" onclick="showNext(7)">Lanjut</button>
         
-        <p class="hidden-text" id="text8">Aku suka cara kamu ketawa...</p>
+        <h1 class="hidden-text" id="text8">Aku suka cara kamu ketawa...</h1>
         <button class="next-button" id="btn8" onclick="showNext(8)">Lanjut</button>
         
-        <p class="hidden-text" id="text9">Cara kamu cerita...</p>
+        <h1 class="hidden-text" id="text9">Cara kamu cerita...</h1>
         <button class="next-button" id="btn9" onclick="showNext(9)">Lanjut</button>
         
-        <p class="hidden-text" id="text10">Dan semua hal kecil tentang kamu.</p>
+        <h1 class="hidden-text" id="text10">Dan semua hal kecil tentang kamu.</h1>
         <button class="next-button" id="btn10" onclick="showNext(10)">Lanjut</button>
         
-        <p class="hidden-text" id="text11">Sejak awal</p>
+        <h1 class="hidden-text" id="text11">Sejak awal</h1>
         <button class="next-button" id="btn11" onclick="showNext(11)">Lanjut</button>
         
-        <p class="hidden-text" id="text12">Aku yakin satu hal...</p>
+        <h1 class="hidden-text" id="text12">Aku yakin satu hal...</h1>
         <button class="next-button" id="btn12" onclick="showNext(12)">Lanjut</button>
         
-        <p class="hidden-text" id="text13"><b>Aku sayang sama kamu! 💖</b></p>
+        <h1 class="hidden-text" id="text13">Aku sayang sama kamu! 💖</h1>
     </div>
     
-    <div id="youtube-player">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_-9hFFvtpMQ?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <audio id="audio-player" autoplay>
+        <source src="audio.mp3" type="audio/mp3">
+    </audio>
     
     <script>
         function startMessage() {
@@ -105,6 +103,7 @@
             document.getElementById('message').style.display = 'block';
             document.getElementById('text1').style.display = 'block';
             document.getElementById('btn1').style.display = 'block';
+            document.getElementById('audio-player').play();
         }
         
         function showNext(step) {
@@ -114,13 +113,6 @@
             if (step < 13) {
                 document.getElementById('text' + (step + 1)).style.display = 'block';
                 document.getElementById('btn' + (step + 1)).style.display = 'block';
-            }
-            
-            if (step === 13) {
-                setTimeout(() => {
-                    document.getElementById('youtube-player').style.width = '1px';
-                    document.getElementById('youtube-player').style.height = '1px';
-                }, 500);
             }
         }
     </script>

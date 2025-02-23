@@ -10,10 +10,17 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('https://source.unsplash.com/1600x900/?love,romantic') no-repeat center center/cover;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
             text-align: center;
             font-family: Arial, sans-serif;
             color: white;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .container {
             display: none;
@@ -49,7 +56,7 @@
 <body>
     <button class="button" onclick="startMessage()">Klik untuk melihat sesuatu</button>
     <div class="container" id="message">
-        <h1 class="hidden-text" id="text1">Hai Sarah ❤️</h1>
+        <h1 class="hidden-text" id="text1">Hai Sarah</h1>
         <button class="next-button" id="btn1" onclick="showNext(1)">Lanjut</button>
         
         <p class="hidden-text" id="text2">Aku punya sesuatu buat kamu...</p>
@@ -89,7 +96,7 @@
     </div>
     
     <div id="youtube-player">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/GxldQ9eX2wo?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_-9hFFvtpMQ?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     
     <script>
